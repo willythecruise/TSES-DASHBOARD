@@ -53,14 +53,14 @@ export default function CoursesPage() {
             value={coursesMetrics.totalCourses.value}
             bgColor={coursesMetrics.totalCourses.bgColor}
             icon={<img src={coursesMetrics.totalCourses.icon} alt="course" className="w-10 h-10 text-purple-600" />}
-            iconBgColor={coursesMetrics.totalCourses.iconBgColor}
+            iconBgColor="bg-green-100"
           />
           <MetricCard
             label={coursesMetrics.totalEnrollments.label}
             value={coursesMetrics.totalEnrollments.value}
             bgColor={coursesMetrics.totalEnrollments.bgColor}
             icon={<img src={coursesMetrics.totalEnrollments.icon} alt="enrollment" className="w-10 h-10 text-blue-600" />}
-            iconBgColor={coursesMetrics.totalEnrollments.iconBgColor}
+            iconBgColor="bg-blue-100"
           />
           <MetricCard
             label={coursesMetrics.avgCompletion.label}
@@ -68,7 +68,7 @@ export default function CoursesPage() {
             bgColor={coursesMetrics.avgCompletion.bgColor}
             icon={<img src={coursesMetrics.avgCompletion.icon} alt="completion" className="w-10 h-10 text-orange-600" />}
             trend={coursesMetrics.avgCompletion.trend}
-            iconBgColor={coursesMetrics.avgCompletion.iconBgColor}
+            iconBgColor="bg-orange-200"
           />
         </div>
 

@@ -14,10 +14,22 @@ interface MetricCardProps {
 }
 
 export default function MetricCard({ label, value, icon, bgColor, iconBgColor = 'bg-gray-100', trend }: MetricCardProps) {
+  // Whitelist/map common background classes so Tailwind picks them up
+  const ICON_BG_MAP: Record<string, string> = {
+    'bg-green-50': 'bg-green-50',
+    'bg-blue-200': 'bg-blue-200',
+    'bg-orange-200': 'bg-orange-200',
+    'bg-green-100': 'bg-green-100',
+    'bg-blue-100': 'bg-blue-100',
+    'bg-gray-100': 'bg-gray-100',
+  };
+
+  const finalIconBg = ICON_BG_MAP[iconBgColor] || iconBgColor || 'bg-gray-100';
+
   return (
     <div className={`${bgColor} rounded-lg p-6 flex items-center gap-4 border-4 border-white`}>
       <div className="flex-shrink-0">
-        <div className={`${iconBgColor} rounded-md w-12 h-12 flex items-center justify-center`}>{icon}</div>
+        <div className={`${finalIconBg} rounded-md w-12 h-12 flex items-center justify-center`}>{icon}</div>
       </div>
       <div className="flex flex-col flex-1">
         <p className="text-gray-600 mb-1">{label}</p>
