@@ -8,7 +8,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { SVG_ICONS, IMAGES } from '@/public/assets';
 
-export default function Header() {
+export default function Header({ onToggleSidebar }: { onToggleSidebar?: () => void }) {
   const dispatch = useAppDispatch();
   const user = useAppSelector((state) => state.user);
   const [showDropdown, setShowDropdown] = useState(false);
@@ -36,9 +36,19 @@ export default function Header() {
   const displayEmail = user.isAuthenticated ? user.email : 'Madison.reertr...';
 
   return (
-    <header className="bg-white border-b border-gray-200 fixed top-0 right-0 left-64 h-16 flex items-center justify-between px-6 z-20">
+    <header className="bg-white border-b border-gray-200 fixed top-0 right-0 left-0 md:left-64 h-16 flex items-center justify-between px-4 md:px-6 z-20">
       {/* Logo + Search */}
       <div className="flex items-center gap-4 flex-1 min-w-0">
+        {/* Mobile menu button */}
+        <button
+          onClick={onToggleSidebar}
+          className="mr-2 p-2 md:hidden text-gray-600 hover:text-gray-900"
+          aria-label="Toggle sidebar"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
         <div className="flex-1 max-w-2xl">
           {/* Make search input and icon flexed together */}
           <div className="flex items-center w-1/2 border border-gray-100 rounded-2xl bg-white focus-within:ring-2 focus-within:ring-blue-500 focus-within:border-transparent">
