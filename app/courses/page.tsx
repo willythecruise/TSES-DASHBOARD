@@ -53,7 +53,7 @@ export default function CoursesPage() {
             value={coursesMetrics.totalCourses.value}
             bgColor={coursesMetrics.totalCourses.bgColor}
             icon={<img src={coursesMetrics.totalCourses.icon} alt="course" className="w-10 h-10 text-purple-600" />}
-            iconBgColor="bg-green-100"
+            iconBgColor="bg-purple-100"
           />
           <MetricCard
             label={coursesMetrics.totalEnrollments.label}
